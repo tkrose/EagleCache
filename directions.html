@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="style.css">
+
+<html>
+<body>
+
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    </head>
+
+    <div class="top-left-icon">
+        <a href="help.html">
+            <img class="icon-size" src="images/Icon-round-Question_mark.svg.png">
+        </a> 
+    </div>
+
+    <div style="text-align: center; margin-top: 15em;">
+        <h1 id="direction">GO TO THE COLLEGE ROAD BUS STOP TO MEET YOUR PARTNER</h1>
+    </div>
+
+    <div style="text-align: center; margin-top: 3.5em;">
+            <button id="done" onclick="printDirection()">
+                <h1>OKAY</h1>
+            </button>
+    </div>
+
+    <script>
+        var command = ["ENTER GASSON HALL", "ENTER ATRIUM"];
+
+        var i = -1;
+        function printDirection() {
+            i++;
+            if (command.length == i) {
+                location.replace("activity.html");
+            }
+            else {
+                document.getElementById("direction").innerHTML = command[i];
+            }
+        }
+
+        function checkLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            }
+            else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            x.innerHTML = "Lat: " + position.coords.latitude + "<br>Long: " + position.coords.longitude;
+        }
+        
+    </script>
+
+</body>
+
+</html>
